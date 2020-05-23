@@ -6,12 +6,14 @@ document.querySelector('table').addEventListener('click', (event) => {
 
     var etiqueta = event.target;
 
+    console.log(event);
+
     if (etiqueta.nodeName == 'A') {
 
 
 
         var valor = etiqueta.getAttribute('data');
-        console.log(valor);
+        // console.log(valor);
         var categorias = JSON.parse(localStorage.getItem('categorias'));
 
         var categoriasAux = [];
@@ -44,14 +46,14 @@ function listar() {
     registro.innerHTML = "";
 
     categorias.forEach((cat, index) => {
-        console.log(cat);
+        //   console.log(cat);
 
         var nuevaFila = document.createElement('tr');
         nuevaFila.innerHTML = `
             <td> ${index + 1} </td>
             <td> ${cat.codigo} </td>
             <td> ${cat.descripcion} </td>
-            <td> <a href='javascript:void(0);' data='${cat.descripcion}' >Elinimar</a> </td>
+            <td> <a href='javascript:void(0);' data='${cat.descripcion}' >Eliminar</a> </td>
         `;
         registro.appendChild(nuevaFila);
 
